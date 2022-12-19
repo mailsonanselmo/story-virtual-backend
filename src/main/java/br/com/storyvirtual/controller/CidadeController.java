@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.storyvirtual.entity.Estado;
-import br.com.storyvirtual.service.EstadoService;
+import br.com.storyvirtual.entity.Cidade;
+import br.com.storyvirtual.service.CidadeService;
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/cidade")
+public class CidadeController {
 
     @Autowired
-    private EstadoService estadoService;
+    private CidadeService cidadeService;
 
     @GetMapping("/")
-    public List<Estado> buscarTodos(Estado estado){
-       return estadoService.buscarTodos();
+    public List<Cidade> buscarTodos(Cidade cidade){
+       return cidadeService.buscarTodos();
     }
     
     @PostMapping("/")
-    public Estado inserir(@RequestBody Estado estado){
-        return estadoService.inserir(estado);
+    public Cidade inserir(@RequestBody Cidade cidade){
+        return cidadeService.inserir(cidade);
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado estado){
-        return estadoService.alterar(estado);
+    public Cidade alterar(@RequestBody Cidade cidade){
+        return cidadeService.alterar(cidade);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
-        estadoService.excluir(id);
+        cidadeService.excluir(id);
         return ResponseEntity.ok().build();
     }
 }

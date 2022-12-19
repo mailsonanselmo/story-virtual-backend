@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class hello {
 
-    
     @GetMapping("/")
-    public String hello(){
+    public String Hello(){
         return "Start Spring Boot " + new Date();
     }
     
